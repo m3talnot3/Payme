@@ -1,0 +1,45 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic';
+$colora: rgba(255,255,255,.6);
+$accent: #DF7345;
+#container {
+	position: absolute;
+	top:0;bottom:0;left:0;right:0;
+
+	background: url('transparent.jpg') center / cover;
+}
+header{
+	width:100%;
+	position:relative;
+	nav{
+		float:right;
+
+		li{
+			display: inline-block;
+			padding: 20px 30px;
+
+			font-size:20px;
+			font-weight:300;
+			color: $colora;
+			
+			border-bottom:3px solid $colora;
+			transition: all .2s ease-in-out;
+
+			&:hover{
+				border-width:6px;
+			}
+			&.sel{
+				color:$accent;
+				border-color:$accent;
+				box-shadow: inset 0px -12px 10px -10px #DF7345;
+			}
+		}
+	}
+}
+main{
+
+}
+
+body{
+	font-family:'Open Sans';
+	color:white;
+}
