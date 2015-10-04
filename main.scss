@@ -7,31 +7,32 @@ $accent: #DF7345;
 
 	background: url('transparent.jpg') center / cover;
 }
-header{
+nav{
 	width:100%;
-	position:relative;
-	nav{
-		float:right;
+	text-align:right;
+	margin-bottom:40px;
 
-		li{
-			display: inline-block;
-			padding: 20px 30px;
+	li{
+		cursor:pointer;
+		user-select:none;-webkit-user-select:none;
+		
+		display: inline-block;
+		padding: 20px 30px;
 
-			font-size:20px;
-			font-weight:300;
-			color: $colora;
-			
-			border-bottom:3px solid $colora;
-			transition: all .2s ease-in-out;
+		font-size:20px;
+		font-weight:300;
+		color: $colora;
+		
+		border-bottom:3px solid $colora;
+		transition: all .2s ease-in-out;
 
-			&:hover{
-				border-width:6px;
-			}
-			&.sel{
-				color:$accent;
-				border-color:$accent;
-				box-shadow: inset 0px -12px 10px -10px #DF7345;
-			}
+		&:hover{
+			border-width:6px;
+		}
+		&.sel{
+			color:$accent;
+			border-color:$accent;
+			box-shadow: inset 0px -12px 10px -10px #DF7345;
 		}
 	}
 }
