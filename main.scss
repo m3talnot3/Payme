@@ -1,0 +1,49 @@
+.demo-layout-transparent {
+	background: url('transparent.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+	/* This background is dark, so we set text to white. Use 87% black instead if
+	 your background is light. */
+	color: white;
+}
+.mdl-grid{
+	max-width:1280px;
+	padding:0;
+}
+.mdl-cell .rcpt{
+	position: relative;
+	width:100%;
+}
+
+.mdl-card{
+	//width:100%;
+	table{
+		width:100%;
+		border:0px;
+		margin:0;
+	}
+}
+.rcpt .mdl-card{
+	margin-bottom:40px;
+	.mdl-card__title{
+		margin-bottom:15px;
+		position: relative;
+	}
+}
+.mdl-cell--4-col{
+	:nth-child(3n-1){
+		//transform:translateY(10px);
+		//-webkit-transform:translateY(10px);
+	}
+	:nth-child(3n){
+		//transform:translateY(22px);
+		//-webkit-transform:translateY(22px);
+	}
+}
+
+
+*{
+	margin:0;
+	padding:0;
+}

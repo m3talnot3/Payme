@@ -1,0 +1,347 @@
+
+
+mixin card(card)
+	if card.type=="receipt"
+		div.mdl-cell.mdl-cell--4-col
+			div.rcpt.mdl-card.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(144,67,54);color:white;")
+					div.mdl-card__title-text #{ public._data.shoppers[card.shopper] }'s receipt
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								- var total = 0;
+								each item in card.items
+									tr
+										td.mdl-data-table__cell--non-numeric #{item.name}
+										td #{item.qty}
+										td £#{ item.price }
+										- total = total + (item.qty*item.price);
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td £#{ total }
+
+div.demo-layout-transparent.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+	header.mdl-layout__header.mdl-layout__header--transparent
+		div.mdl-layout__header-row
+			title
+			span.mdl-layout-title Dashboard
+			//add a spacer to align everything to the right
+			div.mdl-layout-spacer
+			//Navigation
+			nav.mdl-navigation
+				a.mdl-navigation__link(href="") link 1
+				a.mdl-navigation__link(href="") link 2
+				a.mdl-navigation__link(href="") link 3
+	//div.mdl-layout__drawer
+		span.mdl-layout-title Title
+		nav.mdl-navigation
+			a.mdl-navigation__link(href="") link 1
+			a.mdl-navigation__link(href="") link 2
+			a.mdl-navigation__link(href="") link 3
+	main.mdl-layout-content(style="margin-top:48px;")
+		section.section--center.mdl-grid
+
+
+
+			//insert rcpts here:
+			each card in public._data.cards
+				+card(card)
+
+
+			div.rvw.mdl-card.mdl-cell.mdl-cell--12-col.mdl-shadow--6dp(style="min-height:0;")
+				div.mdl-card__title(style="background:rgb(144,67,54);color:white;")
+					div.mdl-card__title-text Week 3 Review
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							tbody
+								tr
+									th By occpt
+									td Marto $3
+									td Borko $12
+									td Tosho $2
+								tr
+									th TOTAL
+									td
+									td
+									td $17
+
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
+			
+
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
+				div.mdl-card__actions.mdl-card--border
+					a.mdl-button.mdl-js-button(href="#") Split
+					a.mdl-button.mdl-js-button(href="#") Edit
+
+
+			div.rvw.mdl-card.mdl-cell.mdl-cell--12-col.mdl-shadow--6dp(style="min-height:0;")
+				div.mdl-card__title(style="background:rgb(144,67,54);color:white;")
+					div.mdl-card__title-text Week 2 Review
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							tbody
+								tr
+									th By occpt
+									td Marto $3
+									td Borko $12
+									td Tosho $2
+								tr
+									th TOTAL
+									td
+									td
+									td $17
+
+
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
+			
+
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
+			
+
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
+			div.rcpt.mdl-card.mdl-cell.mdl-cell--4-col.mdl-shadow--2dp
+				div.mdl-card__title(style="background:rgb(244,67,54);color:white;")
+					div.mdl-card__title-text Recpt / LDL / 22.01.2013
+					div.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored(style="z-index:1;position:absolute;right:16px;bottom:-30px")
+						i.material-icons edit
+				div.mdl-card__media
+					div.mdl-grid
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table
+							thead
+								tr
+									th.mdl-data-table__cell--non-numeric Item
+									th Quantity
+									th Unit price
+							tbody
+								tr
+									td.mdl-data-table__cell--non-numeric Scrub food
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+								tr
+									td.mdl-data-table__cell--non-numeric Item1
+									td 2
+									td $3
+						table.mdl-cell--12-col.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable
+							tbody(style="width:100%;").mdl-data-table--selectable
+								tr
+									td.mdl-data-table__cell--non-numeric TOTAL
+									td $12
